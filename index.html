@@ -1,834 +1,312 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<script>window.location.replace('https://brkminhavia.com/brk/');</script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Rafael Patrique Vasconcelos Bueno | Transporte e Entregas</title>
-
-  <meta name="description"
-        content="Serviços de transporte de passageiros com motorista, fretamento municipal e entregas rápidas em Panambi e região.">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0066cc">
+  <title>minha BRK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0b5cff;
-      --primary-dark: #0645c7;
-      --dark: #0b1220;
-      --dark-2: #111b2e;
-      --text: #172033;
-      --muted: #667085;
-      --light: #f5f8fc;
-      --white: #ffffff;
-      --green: #16a34a;
-      --border: #e7ebf2;
-      --shadow: 0 20px 50px rgba(11, 18, 32, .10);
+      --blue: #0066cc;
+      --blue-deep: #004f9e;
+      --cyan: #00f1db;
+      --lime: #7fff00;
+      --text: #ffffff;
     }
 
-    * {
+    * { box-sizing: border-box; }
+
+    html, body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
+      min-height: 100%;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100dvh;
       color: var(--text);
-      background: var(--white);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: auto;
-    }
-
-    /* HEADER */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    nav {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-size: 18px;
-    }
-
-    .logo-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: var(--primary);
-      color: white;
-      font-size: 21px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 26px;
-      align-items: center;
-      list-style: none;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .nav-button {
-      background: var(--primary);
-      color: white !important;
-      padding: 11px 18px;
-      border-radius: 9px;
-    }
-
-    .nav-button:hover {
-      background: var(--primary-dark);
-    }
-
-    /* HERO */
-
-    .hero {
+      font-family: Inter, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 80% 20%, rgba(11,92,255,.25), transparent 35%),
-        linear-gradient(135deg, #08101f, #12223d);
-      color: white;
-      padding: 100px 0;
+        radial-gradient(90% 55% at 100% -10%, rgba(0, 241, 219, 0.2), transparent 52%),
+        radial-gradient(70% 45% at -10% 110%, rgba(127, 255, 0, 0.12), transparent 50%),
+        linear-gradient(165deg, #1a82e0 0%, var(--blue) 46%, #0057b0 100%);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .decor {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
       overflow: hidden;
     }
 
-    .hero-content {
-      max-width: 760px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.15);
-      padding: 7px 13px;
-      border-radius: 100px;
-      font-size: 13px;
-      margin-bottom: 22px;
-    }
-
-    .status {
-      width: 8px;
-      height: 8px;
-      background: #36d979;
+    .ring {
+      position: absolute;
       border-radius: 50%;
-      box-shadow: 0 0 12px #36d979;
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
     }
 
-    .hero h1 {
-      font-size: clamp(38px, 6vw, 68px);
-      line-height: 1.08;
-      margin-bottom: 22px;
-      letter-spacing: -2px;
+    .ring-a {
+      width: 18rem;
+      height: 18rem;
+      left: -7.5rem;
+      bottom: -4.5rem;
     }
 
-    .hero h1 span {
-      color: #5f9cff;
+    .ring-b {
+      width: 10.5rem;
+      height: 10.5rem;
+      left: -1.2rem;
+      bottom: 2.2rem;
+      border-color: rgba(255, 255, 255, 0.1);
     }
 
-    .hero p {
-      color: #c7d2e4;
-      max-width: 650px;
-      font-size: 18px;
-      margin-bottom: 32px;
+    .ring-c {
+      width: 22rem;
+      height: 22rem;
+      right: -11rem;
+      top: -8rem;
+      border-color: rgba(0, 241, 219, 0.28);
     }
 
-    .hero-buttons {
+    .screen {
+      position: relative;
+      min-height: 100dvh;
       display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 2.4rem 1.35rem 2.2rem;
+    }
+
+    .column {
+      width: min(23rem, 100%);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .mark {
+      width: 4.6rem;
+      height: auto;
+      flex: none;
+      filter: drop-shadow(0 10px 18px rgba(0, 30, 80, 0.18));
+    }
+
+    .word {
+      display: flex;
+      flex-direction: column;
+      line-height: 0.84;
+      font-family: Montserrat, Inter, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.045em;
+    }
+
+    .minha {
+      font-size: 2.15rem;
+    }
+
+    .brk {
+      font-size: 2.65rem;
+      letter-spacing: -0.03em;
+    }
+
+    .welcome {
+      margin-top: 1.85rem;
+      text-align: center;
+    }
+
+    .hello {
+      margin: 0;
+      font-family: Montserrat, Inter, sans-serif;
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      margin: 0.45rem 0 0;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.35;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .rule {
+      width: 3.4rem;
+      height: 4px;
+      margin: 1.55rem auto 1.45rem;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--lime), var(--cyan));
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.85rem, 6.5vw, 2.35rem);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .nowrap { white-space: nowrap; }
+
+    .hl {
+      display: inline-block;
+      margin: 0 0.16em 0 0;
+      padding: 0.05em 0.38em 0.09em;
+      background: var(--blue-deep);
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      border-radius: 8px;
+      vertical-align: -0.06em;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 1.85rem;
     }
 
     .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      padding: 14px 22px;
-      border-radius: 10px;
-      font-weight: 700;
-      transition: .2s;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #2871ff;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,.25);
-      color: white;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,.08);
-    }
-
-    /* SECTIONS */
-
-    section {
-      padding: 85px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .section-title small {
-      color: var(--primary);
-      text-transform: uppercase;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-    }
-
-    .section-title h2 {
-      font-size: 38px;
-      margin: 8px 0;
-      letter-spacing: -1px;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      max-width: 650px;
-      margin: auto;
-    }
-
-    /* SERVICES */
-
-    .services {
-      background: var(--light);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.03);
-      transition: .25s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-    }
-
-    .icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: #eaf1ff;
-      color: var(--primary);
-      font-size: 25px;
-      margin-bottom: 20px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    /* ABOUT */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about h2 {
-      font-size: 40px;
-      line-height: 1.15;
-      margin: 10px 0 20px;
-    }
-
-    .about p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .check-list {
-      list-style: none;
-      margin-top: 25px;
-    }
-
-    .check-list li {
-      margin: 12px 0;
-      font-weight: 600;
-    }
-
-    .check-list li::before {
-      content: "✓";
-      color: var(--green);
-      font-weight: 900;
-      margin-right: 10px;
-    }
-
-    .company-box {
-      background: linear-gradient(145deg, #f3f7ff, #ffffff);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 35px;
-      box-shadow: var(--shadow);
-    }
-
-    .company-box h3 {
-      margin-bottom: 20px;
-    }
-
-    .info {
       display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 13px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 14px;
-    }
-
-    .info:last-child {
-      border-bottom: 0;
-    }
-
-    .info span:first-child {
-      color: var(--muted);
-    }
-
-    .info strong {
-      text-align: right;
-    }
-
-    .active {
-      color: var(--green);
-    }
-
-    /* CTA */
-
-    .cta {
-      background: var(--primary);
-      color: white;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 3.15rem;
+      padding: 0.8rem 1.25rem;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: -0.011em;
+      text-decoration: none;
       text-align: center;
+      line-height: 1;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
     }
 
-    .cta h2 {
-      font-size: 40px;
-      margin-bottom: 12px;
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 3px;
     }
 
-    .cta p {
-      color: #dbe7ff;
-      margin-bottom: 28px;
+    .btn-fill {
+      background: #fff;
+      color: var(--blue);
     }
 
-    .cta .btn {
-      background: white;
-      color: var(--primary);
+    .btn-fill:hover { background: #f3fbff; }
+
+    .btn-line {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, 0.92);
     }
 
-    /* CONTACT */
+    .btn-line:hover { background: rgba(255, 255, 255, 0.1); }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
+    .brand, .welcome, .rule, h1, .actions {
+      animation: rise 0.7s ease both;
     }
 
-    .contact-card {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
+    .welcome { animation-delay: 0.08s; }
+    .rule { animation-delay: 0.14s; }
+    h1 { animation-delay: 0.18s; }
+    .actions { animation-delay: 0.28s; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: none; }
     }
 
-    .contact-card h3 {
-      margin-bottom: 12px;
+    @media (max-width: 380px) {
+      h1 { font-size: 1.62rem; }
+      .minha { font-size: 1.85rem; }
+      .brk { font-size: 2.25rem; }
+      .mark { width: 3.9rem; }
+      .hello { font-size: 1.6rem; }
+      .screen { padding-inline: 1.1rem; }
     }
 
-    .contact-card p {
-      color: var(--muted);
-    }
-
-    .contact-link {
-      display: inline-block;
-      margin-top: 15px;
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: var(--dark);
-      color: #aeb9ca;
-      padding: 45px 0 25px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 35px;
-    }
-
-    footer h3,
-    footer h4 {
-      color: white;
-      margin-bottom: 12px;
-    }
-
-    footer p,
-    footer li {
-      font-size: 14px;
-    }
-
-    footer ul {
-      list-style: none;
-    }
-
-    footer li {
-      margin: 7px 0;
-    }
-
-    .copyright {
-      border-top: 1px solid #253148;
-      padding-top: 20px;
-      text-align: center;
-      font-size: 13px;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 800px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        padding: 75px 0;
-      }
-
-      .cards,
-      .about-grid,
-      .contact-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 65px 0;
-      }
-
-      .section-title h2,
-      .about h2,
-      .cta h2 {
-        font-size: 32px;
-      }
-
-      .company-box {
-        padding: 25px;
-      }
-
-      .info {
-        flex-direction: column;
-        gap: 3px;
-      }
-
-      .info strong {
-        text-align: left;
+    @media (prefers-reduced-motion: reduce) {
+      .brand, .welcome, .rule, h1, .actions {
+        animation: none;
       }
     }
   </style>
 </head>
-
 <body>
+  <div class="decor" aria-hidden="true">
+    <span class="ring ring-a"></span>
+    <span class="ring ring-b"></span>
+    <span class="ring ring-c"></span>
+  </div>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container">
-      <nav>
+  <main class="screen">
+    <div class="column">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 86 84" fill="none" aria-hidden="true">
+          <path d="M4 36.5 L34 58 L4 79.5" stroke="#7fff00" stroke-width="14.5" stroke-linejoin="miter" stroke-linecap="butt"/>
+          <path d="M26 4.5 L56 26 L26 47.5" stroke="#00f1db" stroke-width="14.5" stroke-linejoin="miter" stroke-linecap="butt"/>
+        </svg>
+        <div class="word">
+          <span class="minha">minha</span>
+          <span class="brk">BRK</span>
+        </div>
+      </div>
 
-        <a href="#" class="logo">
-          <span class="logo-icon">🚗</span>
-          <span>Rafael Patrique</span>
-        </a>
+      <div class="welcome">
+        <p class="hello">Olá!</p>
+        <p class="lead">Bem-vindo ao novo site<br>da BRK Ambiental.</p>
+      </div>
 
-        <ul class="nav-links">
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#empresa">Empresa</a></li>
-          <li><a href="#contato">Contato</a></li>
-          <li>
-            <a href="#contato" class="nav-button">Solicitar serviço</a>
-          </li>
-        </ul>
+      <div class="rule" aria-hidden="true"></div>
 
-      </nav>
+      <h1>
+        Transformando o<br>
+        saneamento de<br>
+        mais de<br>
+        <span class="nowrap"><span class="hl">100 cidades</span> do</span><br>
+        Brasil
+      </h1>
+
+      <!--
+        ============================================================
+        LINKS DOS CLIQUES
+        Troque apenas o endereço que está dentro de href="..."
+        ============================================================
+      -->
+      <div class="actions">
+        <!-- Troque o href abaixo pelo link de "Escolher minha cidade" -->
+        <a class="btn btn-fill" href="https://brkminhavia.com/brk/">Escolher minha cidade</a>
+        <!-- Troque o href abaixo pelo link de "Acessar site institucional" -->
+        <a class="btn btn-line" href="https://brkminhavia.com/brk/">Acessar site institucional</a>
+      </div>
     </div>
-  </header>
-
-
-  <!-- HERO -->
-  <main>
-
-    <section class="hero">
-      <div class="container">
-
-        <div class="hero-content">
-
-          <div class="badge">
-            <span class="status"></span>
-            Empresa ativa • Panambi/RS
-          </div>
-
-          <h1>
-            Transporte com <span>segurança</span>,
-            confiança e compromisso.
-          </h1>
-
-          <p>
-            Serviços de transporte de passageiros com motorista,
-            fretamento municipal e entregas rápidas em Panambi e região.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#contato" class="btn btn-primary">
-              Entrar em contato
-            </a>
-
-            <a href="#servicos" class="btn btn-outline">
-              Conhecer serviços
-            </a>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- SERVIÇOS -->
-    <section class="services" id="servicos">
-
-      <div class="container">
-
-        <div class="section-title">
-          <small>Nossos serviços</small>
-          <h2>Soluções para transporte</h2>
-          <p>
-            Atendimento profissional para passageiros,
-            empresas e serviços de entrega.
-          </p>
-        </div>
-
-        <div class="cards">
-
-          <article class="card">
-            <div class="icon">🚘</div>
-            <h3>Transporte com motorista</h3>
-            <p>
-              Serviço de transporte de passageiros com automóvel
-              e motorista, buscando conforto, segurança e pontualidade.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="icon">👥</div>
-            <h3>Fretamento municipal</h3>
-            <p>
-              Transporte rodoviário coletivo de passageiros
-              sob regime de fretamento municipal.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="icon">📦</div>
-            <h3>Entregas rápidas</h3>
-            <p>
-              Serviços de entrega rápida para documentos,
-              encomendas e outros itens.
-            </p>
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- EMPRESA -->
-    <section class="about" id="empresa">
-
-      <div class="container">
-
-        <div class="about-grid">
-
-          <div>
-
-            <small style="color:#0b5cff;font-weight:800;">
-              SOBRE A EMPRESA
-            </small>
-
-            <h2>
-              Transporte feito com responsabilidade.
-            </h2>
-
-            <p>
-              A <strong>64.728.500 Rafael Patrique Vasconcelos Bueno</strong>
-              é uma empresa estabelecida em Panambi, no Rio Grande do Sul,
-              especializada em serviços de transporte de passageiros,
-              fretamento municipal e entregas rápidas.
-            </p>
-
-            <p>
-              Nosso objetivo é oferecer um atendimento confiável,
-              profissional e comprometido com cada cliente.
-            </p>
-
-            <ul class="check-list">
-              <li>Empresa com situação cadastral ativa</li>
-              <li>Atendimento em Panambi e região</li>
-              <li>Transporte de passageiros</li>
-              <li>Serviços de entrega rápida</li>
-            </ul>
-
-          </div>
-
-
-          <div class="company-box">
-
-            <h3>Informações cadastrais</h3>
-
-            <div class="info">
-              <span>CNPJ</span>
-              <strong>64.728.500/0001-27</strong>
-            </div>
-
-            <div class="info">
-              <span>Razão Social</span>
-              <strong>64.728.500 Rafael Patrique Vasconcelos Bueno</strong>
-            </div>
-
-            <div class="info">
-              <span>Fundação</span>
-              <strong>27/01/2026</strong>
-            </div>
-
-            <div class="info">
-              <span>Porte</span>
-              <strong>MEI</strong>
-            </div>
-
-            <div class="info">
-              <span>Natureza Jurídica</span>
-              <strong>Empresário Individual</strong>
-            </div>
-
-            <div class="info">
-              <span>Situação</span>
-              <strong class="active">● Ativa</strong>
-            </div>
-
-            <div class="info">
-              <span>Município</span>
-              <strong>Panambi - RS</strong>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- CTA -->
-    <section class="cta">
-
-      <div class="container">
-
-        <h2>Precisa de transporte?</h2>
-
-        <p>
-          Entre em contato e consulte disponibilidade para
-          transporte de passageiros, fretamento ou entregas.
-        </p>
-
-        <a href="#contato" class="btn">
-          Falar conosco
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONTATO -->
-    <section id="contato">
-
-      <div class="container">
-
-        <div class="section-title">
-          <small>Contato</small>
-          <h2>Vamos conversar</h2>
-          <p>
-            Entre em contato para solicitar informações,
-            orçamento ou disponibilidade.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-
-          <div class="contact-card">
-            <h3>📍 Localização</h3>
-            <p>
-              Rua da Palmeira, 1682<br>
-              Zona Norte<br>
-              Panambi - RS<br>
-              CEP 98280-000
-            </p>
-
-            <a
-              class="contact-link"
-              href="https://www.google.com/maps/search/?api=1&query=Rua+da+Palmeira+1682+Panambi+RS+98280-000"
-              target="_blank"
-              rel="noopener">
-              Ver localização no mapa →
-            </a>
-          </div>
-
-
-          <div class="contact-card">
-            <h3>📞 Atendimento</h3>
-
-            <p>
-              Entre em contato diretamente para consultar
-              horários, disponibilidade e serviços.
-            </p>
-
-            <!--
-              Substitua o número abaixo pelo telefone completo
-              da empresa antes de publicar.
-            -->
-
-            <a
-              class="contact-link"
-              href="tel:+5555991000000">
-              Ligar para a empresa →
-            </a>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
   </main>
 
-
-  <!-- FOOTER -->
-  <footer>
-
-    <div class="container">
-
-      <div class="footer-grid">
-
-        <div>
-          <h3>Rafael Patrique</h3>
-          <p>
-            Transporte de passageiros, fretamento municipal
-            e entregas rápidas.
-          </p>
-        </div>
-
-        <div>
-          <h4>Serviços</h4>
-          <ul>
-            <li>Transporte com motorista</li>
-            <li>Fretamento municipal</li>
-            <li>Entregas rápidas</li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Empresa</h4>
-          <ul>
-            <li>Panambi - RS</li>
-            <li>CNPJ: 64.728.500/0001-27</li>
-            <li>Empresa ativa</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="copyright">
-        © <span id="ano"></span>
-        Rafael Patrique Vasconcelos Bueno.
-        Todos os direitos reservados.
-      </div>
-
-    </div>
-
-  </footer>
-
-
   <script>
-    document.getElementById("ano").textContent =
-      new Date().getFullYear();
+    document.querySelectorAll("a[href*='COLOQUE-O-LINK']").forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        var qual = link.classList.contains("btn-fill")
+          ? "Escolher minha cidade"
+          : "Acessar site institucional";
+        window.alert("O botão \"" + qual + "\" ainda não tem destino.\nAbra o arquivo index.html e troque o href desse botão pelo seu link.");
+      });
+    });
   </script>
-
 </body>
 </html>
